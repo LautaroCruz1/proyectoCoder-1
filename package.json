@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "name": "proyectocoder-1",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "node --watch app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
