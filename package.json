@@ -1,11 +1,12 @@
 {
   "dependencies": {
-    "express": "^4.19.2"
+    "ds": "^2.0.2",
+    "express": "^4.19.2",
+    "fs": "^0.0.1-security"
   },
   "name": "proyectocoder-1",
   "version": "1.0.0",
   "main": "app.js",
-  "devDependencies": {},
   "scripts": {
     "start": "node --watch app.js"
   },
