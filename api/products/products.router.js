@@ -6,10 +6,12 @@ const fs = require("fs")
 const filePath = "./data/productos.json"
 
 
-router.get("/", (req, res) => {   //get para traer todos los productos del cart y el limite ?limit= x 
+
+//Ruta traer todos los productos del cart (y con limite ?limit= x) 
+router.get("/", (req, res) => { 
     fs.readFile(filePath, "utf-8", (error, data) => {
         if (error) {
-            res.status(500).json({ msg: "error al cargar productos" })
+            res.status(500).json({ msg: "Error interno del servidor" })
             return;
 
         } else {
@@ -22,13 +24,13 @@ router.get("/", (req, res) => {   //get para traer todos los productos del cart 
 })
 
 
-// PROFE
+//Ruta para obtener los productos por su Id
 router.get("/products/:pid", (req, res) => {
     const productId = req.params.pid;
     fs.readFile(filePath, 'utf8', (error, data) => {  //ruta a productos.json (filePath de la linea 5)
         if (error) {
             console.error(error);
-            return res.status(500).json({ error: "error interno del servidor" });
+            return res.status(500).json({ error: "Error interno del servidor" });
         }
         const productArray = JSON.parse(data);
         const product = productArray.find(product => product.id === parseInt(productId));
@@ -40,7 +42,7 @@ router.get("/products/:pid", (req, res) => {
     });
 });
 
-
+//Ruta para postear nuevos productos (utilizando body>raw)
 router.post("/products", (req, res) => {
     const {
         title,
@@ -54,22 +56,22 @@ router.post("/products", (req, res) => {
     fs.readFile(filePath, 'utf8', (error, data) => {  //ruta a productos.json (filePath de la linea 5)
         if (error) {
             console.error(error);
-            return res.status(500).json({ error: "error interno del servidor" });
+            return res.status(500).json({ error: "Error interno del servidor" });
         }
         const products = JSON.parse(data)
-        const nuevoId = products.length += 1 
+        const Id = products.length += 1 
         const añadirProducto = {
-            nuevoId,
-            title: "productoNuevo 5",
-            description: "descripción nuevo producto 5",
-            code: "codigo del nuevo producto",
+            Id,
+            title: "producto nuevo posteado",
+            description: "descripción nuevo posteada",
+            code: "posteo del codigo del nuevo producto",
             price: 250,
             status : true,
             stock: 1,
-            category: "categoria de nuevo producto 5"
+            category: "producto posteado"
         }
         products.push(añadirProducto)
-        //escritura del nuevo arreglo en productos.json
+    
         fs.writeFile(filePath, JSON.stringify(products, null, 2), error => {
             if (error) {
                 console.error(error)
@@ -80,16 +82,7 @@ router.post("/products", (req, res) => {
     })
 })
 
-
-
-
-
-
-
-
-
-
-
+//Ruta para modificar los productos 
 router.put("/:pid", (req, res) => {
     const {
         title,
@@ -106,7 +99,7 @@ router.put("/:pid", (req, res) => {
     fs.readFile(filePath, "utf-8", (error, data) => {
         if (error) {
             console.error(error);
-            return res.status(500).json({ error: "error interno del servidor" });
+            return res.status(500).json({ error: "Error interno del servidor" });
         }
 
         let productoArray = JSON.parse(data);
@@ -124,33 +117,42 @@ router.put("/:pid", (req, res) => {
             fs.writeFile(filePath, JSON.stringify(productoArray, null, 2), error => {
                 if (error) {
                     console.error(error);
-                    return res.status(500).json({ error: "error al escribir el archivo" });
+                    return res.status(500).json({ error: "Error al escribir el archivo" });
                 }
                 res.json(producto);
             });
         } else {
-            return res.status(404).json({ error: "Producto no encontrado" });
+            return res.status(404).json({ error: "error 404 not found" });
         }
     });
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-router.delete("/:pid", (req, res) => {  //debera eliminar el producto del carrito utilizando el numero de id indicado
-
-})
-
+//Ruta para eliminar productos mediante su Id
+router.delete("/:pid", (req, res) => {
+    const productoId = parseInt(req.params.pid);
+    fs.readFile(filePath, "utf-8", (error, data) => {
+        if (error) {
+            console.error(error);
+            return res.status(500).json({ error: "Error interno del servidor" });
+        }
+        let productoArray = JSON.parse(data);
+        if (!Array.isArray(productoArray)) {
+            return res.status(500).json({ error: "Los datos del archivo no son válidos" });
+        }
+        const productoExistente = productoArray.some(p => p && p.id === productoId);
+        if (productoExistente) {
+            const productoArrayFiltrado = productoArray.filter(p => p && p.id !== productoId);
+            fs.writeFile(filePath, JSON.stringify(productoArrayFiltrado, null, 2), error => {
+                if (error) {
+                    console.error(error);
+                    return res.status(500).json({ error: "Error al escribir el archivo" });
+                }
+                res.json({ message: "Producto eliminado exitosamente" });
+            });
+        } else {
+            return res.status(404).json({ error: "error 404 not found" });
+        }
+    });
+});
 
 module.exports = router

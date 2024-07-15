@@ -4,94 +4,19 @@
     "title": "producto nuevo actualizado",
     "description": "este es el producto 1",
     "code": "codigo random del producto",
-    "price": 50,
+    "price": 500,
     "status": true,
     "stock": 10,
-    "category": "categoria del producto"
+    "category": "producto ya creado en la base"
   },
   {
     "id": 2,
     "title": "Producto 2",
     "description": "este es el producto 2",
     "code": "codigo random del producto",
-    "price": 50,
+    "price": 2,
     "status": true,
-    "stock": 10,
-    "category": "categoria del producto"
-  },
-  {
-    "id": 3,
-    "title": "Producto 3",
-    "description": "este es el producto 3",
-    "code": "codigo random del producto",
-    "price": 50,
-    "status": true,
-    "stock": 12,
-    "category": "categoria del producto"
-  },
-  {
-    "id": 4,
-    "title": "Producto 4",
-    "description": "este es el producto 4",
-    "code": "codigo random del producto",
-    "price": 50,
-    "status": true,
-    "stock": 8,
-    "category": "categoria del producto"
-  },
-  null,
-  {
-    "nuevoId": 5,
-    "title": "productoNuevo 5",
-    "description": "descripción nuevo producto 5",
-    "code": "codigo del nuevo producto",
-    "price": 250,
-    "status": true,
-    "stock": 1,
-    "category": "categoria de nuevo producto 5"
-  },
-  null,
-  {
-    "nuevoId": 6,
-    "title": "productoNuevo 5",
-    "description": "descripción nuevo producto 5",
-    "code": "codigo del nuevo producto",
-    "price": 250,
-    "status": true,
-    "stock": 1,
-    "category": "categoria de nuevo producto 5"
-  },
-  null,
-  {
-    "nuevoId": 7,
-    "title": "productoNuevo 5",
-    "description": "descripción nuevo producto 5",
-    "code": "codigo del nuevo producto",
-    "price": 250,
-    "status": true,
-    "stock": 1,
-    "category": "categoria de nuevo producto 5"
-  },
-  null,
-  {
-    "nuevoId": 8,
-    "title": "productoNuevo 5",
-    "description": "descripción nuevo producto 5",
-    "code": "codigo del nuevo producto",
-    "price": 250,
-    "status": true,
-    "stock": 1,
-    "category": "categoria de nuevo producto 5"
-  },
-  null,
-  {
-    "nuevoId": 9,
-    "title": "productoNuevo 5",
-    "description": "descripción nuevo producto 5",
-    "code": "codigo del nuevo producto",
-    "price": 250,
-    "status": true,
-    "stock": 1,
-    "category": "categoria de nuevo producto 5"
+    "stock": 700,
+    "category": "producto ya creado en la base"
   }
 ]
