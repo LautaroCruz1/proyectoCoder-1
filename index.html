@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Proyecto Final: primera entrega. Alumno: Lautaro Cruz</h1>
+    <h2>Proyecto realizado con:</h2>
+    <div>
+    <li>
+        node.js
+    </li>
+    <li>
+        Express
+    </li>
+    <li>
+        FileSystem
+    </li>
+    <li>
+        Postman
+    </li>
+    <li>
+        Git
+    </li>
+    </div>
+    <div>
+    <h2>Método de instalación:</h2>
+    <li>(en consola o utilizando git bash) git clone https://github.com/LautaroCruz1/proyectoCoder-1.git</li>
+    <li>cd proyectoCoder-1-1</li>
+    <li>npm i express</li>
+    <h2>Método de ejecución:</h2>
+    <li>npm init</li>
+    <li>modificar dentro de package.json la sección: "start": "node --watch app.js"</li>
+    <li>ejecutar npm start (en consola)</li>
+    <li>el código esta ejecutado en localhost:8080</li>
+</div>
+<div>
+    <h2>Demostración del código con Postman:</h2>
+    <h3>Products</h3>
+        <h4>método Get:</h4>
+            <li>localhost:8080/</li>
+            <li>devuelve todos los productos de la base de datos</li>
+            <img src="capturas/get_products.png">
+            <li>tambíen puede limitarse la busqueda utilizando ?limit= x dentro de la url</li>
+            <img src="capturas/get_products_limit.png">
+            <li></li>
+        <h4>método Get (productos por Id):</h4>
+            <li>localhost:8080/:pid</li>
+            <li>devuelve los productos con el id indicado en la url, en este caso el producto con id:2</li>
+            <img src="capturas/get_por_id.png">
+        <h4>método Post</h4>
+            <li>localhost:8080/products</li>
+            <li>en éste caso postearemos un producto con el titulo: "producto nuevo posteado" y nuevos atributos</li>
+            <li>el id de los productos que añadamos se incrementará automaticamente</li>
+            <img src="capturas/post_products.png">
+        <h4>método Put</h4>
+            <li>localhost:8080/:pid</li>
+            <li>en éste caso vamos a modificar los atributos del producto mediante las pestañas body, raw y seleccionamos json</li>
+            <li>siguiendo ésta estructura cambiaremos los atributos que queramos:
+                producto.title = title || producto.title;
+                producto.description = description || producto.description;
+                producto.code = code || producto.code;
+                producto.price = price || producto.price;
+                producto.status = status || producto.status;
+                producto.stock = stock || producto.stock;
+                producto.category = category || producto.category;
+            </li>
+            <li>vamos a modificar un producto ya creado en la base, cuyo id es 2</li>
+            <img src="/capturas/put_product1.png">
+        <h4>método Delete:</h4>
+            <li>localhost:8080/:pid</li>
+            <li>mediante éste método borraremos un producto de nuestra base mediante su id</li>
+            <li>en éste caso borraremos el producto cuyo id es 3</li>
+            <img src="capturas/delete_product.png">
+</div>
+</body>
+
+</html>

@@ -103,7 +103,7 @@ router.put("/:pid", (req, res) => {
         }
 
         let productoArray = JSON.parse(data);
-        let producto = productoArray.find(p => p.id === productoId);
+        let producto = productoArray.find(productoArray => productoArray.id === productoId);
 
         if (producto) {
             producto.title = title || producto.title;
