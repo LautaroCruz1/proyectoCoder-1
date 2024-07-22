@@ -1,9 +1,9 @@
-const { error } = require("console")
-const express = require("express")
-const router = express.Router()
-const fs = require("fs")
+import { error } from 'console';
+import express from 'express';
+import fs from 'fs';
 
-const filePath = "./data/carrito.json"  //filePath para simplificar codigo
+const router = express.Router();
+const filePath = './api/data/carrito.json';  //filePath para simplificar código
 
 
 // Ruta para crear un nuevo carrito
@@ -85,4 +85,4 @@ router.post('/carts/:cid/product/:pid', (req, res) => {
         }
     });
 });
-module.exports = router
+export default router;

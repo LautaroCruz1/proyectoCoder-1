@@ -1,14 +1,13 @@
-const { error } = require("console")
-const express = require("express")
-const router = express.Router()
-const fs = require("fs")
+import { error } from 'console';
+import express from 'express';
+import fs from 'fs';
 
-const filePath = "./data/productos.json"
-
+const router = express.Router();
+const filePath = './api/data/carrito.json';  //filePath para simplificar código
 
 
 //Ruta traer todos los productos del cart (y con limite ?limit= x) 
-router.get("/", (req, res) => { 
+router.get("/products", (req, res) => {
     fs.readFile(filePath, "utf-8", (error, data) => {
         if (error) {
             res.status(500).json({ msg: "Error interno del servidor" })
@@ -25,7 +24,7 @@ router.get("/", (req, res) => {
 
 
 //Ruta para obtener los productos por su Id
-router.get("/products/:pid", (req, res) => {
+router.get("/api/products/:pid", (req, res) => {
     const productId = req.params.pid;
     fs.readFile(filePath, 'utf8', (error, data) => {  //ruta a productos.json (filePath de la linea 5)
         if (error) {
@@ -43,35 +42,44 @@ router.get("/products/:pid", (req, res) => {
 });
 
 //Ruta para postear nuevos productos (utilizando body>raw)
-router.post("/products", (req, res) => {
+router.post("/api/products", (req, res) => {
     const {
         title,
         description,
         code,
         price,
-        status, 
+        status,
         stock,
         category
     } = req.body
+
+    //Validación de campos obligatorios
+    if (!title || !description || !code || price === undefined || stock === undefined || !category) {
+        return res.status(400).json({ error: "Todos los campos son obligatorios" });
+    }
+
+
     fs.readFile(filePath, 'utf8', (error, data) => {  //ruta a productos.json (filePath de la linea 5)
         if (error) {
             console.error(error);
             return res.status(500).json({ error: "Error interno del servidor" });
         }
         const products = JSON.parse(data)
-        const Id = products.length += 1 
+        // const id = products.length += 1
+        const id = products.length > 0 ? products[products.length - 1].id + 1 : 1 
+
         const añadirProducto = {
-            Id,
-            title: "producto nuevo posteado",
-            description: "descripción nuevo posteada",
-            code: "posteo del codigo del nuevo producto",
-            price: 250,
-            status : true,
-            stock: 1,
-            category: "producto posteado"
+            id,
+            title,
+            description,
+            code,
+            price,
+            status: true,
+            stock,
+            category
         }
         products.push(añadirProducto)
-    
+
         fs.writeFile(filePath, JSON.stringify(products, null, 2), error => {
             if (error) {
                 console.error(error)
@@ -83,7 +91,7 @@ router.post("/products", (req, res) => {
 })
 
 //Ruta para modificar los productos 
-router.put("/:pid", (req, res) => {
+router.put("/api/products/:pid", (req, res) => {
     const {
         title,
         description,
@@ -93,7 +101,7 @@ router.put("/:pid", (req, res) => {
         stock,
         category
     } = req.body;
-    
+
     const productoId = parseInt(req.params.pid);
 
     fs.readFile(filePath, "utf-8", (error, data) => {
@@ -128,7 +136,7 @@ router.put("/:pid", (req, res) => {
 });
 
 //Ruta para eliminar productos mediante su Id
-router.delete("/:pid", (req, res) => {
+router.delete("/api/products/:pid", (req, res) => {
     const productoId = parseInt(req.params.pid);
     fs.readFile(filePath, "utf-8", (error, data) => {
         if (error) {
@@ -155,4 +163,4 @@ router.delete("/:pid", (req, res) => {
     });
 });
 
-module.exports = router
+export default router;

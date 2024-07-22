@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "title": "producto 1",
+    "description": "description product 1",
+    "code": "123",
+    "price": 1250,
+    "status": true,
+    "stock": 10,
+    "category": "smarthphones"
+  },
+  {
+    "id": 2,
+    "title": "producto 3",
+    "description": "description product 3",
+    "code": "122",
+    "price": 1233100,
+    "status": true,
+    "stock": 2,
+    "category": "smarthphones"
+  },
+  {
+    "id": 3,
+    "title": "producto 3",
+    "description": "description product 3",
+    "code": "122",
+    "price": 500,
+    "status": true,
+    "stock": 2,
+    "category": "smarthphones"
+  },
+  {
+    "id": 4,
+    "title": "producto 3",
+    "description": "description product 3",
+    "code": "122",
+    "price": 500,
+    "status": true,
+    "stock": 2,
+    "category": "smarthphones"
+  },
+  {
+    "id": 5,
+    "title": "producto 85",
+    "description": "description product 3",
+    "code": "122",
+    "price": 500,
+    "status": true,
+    "stock": 2,
+    "category": "smarthphones"
+  }
+]
