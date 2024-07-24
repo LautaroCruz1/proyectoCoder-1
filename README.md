@@ -14,6 +14,12 @@
         Postman
     </li>
     <li>
+        Handlebars
+    </li>
+    <li>
+        Socket.io
+    </li>
+    <li>
         Git
     </li>
     </div>
@@ -21,7 +27,7 @@
     <h2>Método de instalación:</h2>
     <li>(en consola o utilizando git bash) git clone https://github.com/LautaroCruz1/proyectoCoder-1.git</li>
     <li>cd proyectoCoder-1-1</li>
-    <li>npm i express</li>
+    <li>npm i express express-handlebars socket.io</li>
     <h2>Método de ejecución:</h2>
     <li>npm init</li>
     <li>modificar dentro de package.json la sección: "start": "node --watch app.js"</li>

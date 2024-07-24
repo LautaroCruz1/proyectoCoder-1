@@ -2,9 +2,10 @@ import { error } from 'console';
 import express from 'express';
 import fs from 'fs';
 
+
+
 const router = express.Router();
 const filePath = './api/data/carrito.json';  //filePath para simplificar código
-
 
 // Ruta para crear un nuevo carrito
 router.post('/carts', (req, res) => {

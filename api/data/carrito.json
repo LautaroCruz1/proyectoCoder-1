@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "producto 85",
+    "description": "description product 3",
+    "code": "122",
+    "price": 500,
+    "status": true,
+    "stock": 2,
+    "category": "smarthphones"
+  },
+  {
+    "id": 2,
+    "title": "producto 85",
+    "description": "description product 3",
+    "code": "122",
+    "price": 500,
+    "status": true,
+    "stock": 2,
+    "category": "smarthphones"
+  },
+  {
+    "id": 3,
+    "title": "producto 85",
+    "description": "description product 3",
+    "code": "122",
+    "price": 500,
+    "status": true,
+    "stock": 2,
+    "category": "smarthphones"
+  }
+]
