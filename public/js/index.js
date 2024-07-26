@@ -53,3 +53,32 @@ const socket = io();
                 productList.appendChild(li);
             });
         });
+
+        // Manejo del formulario para agregar productos
+        const addProductForm = document.getElementById('add-product-form');
+        addProductForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const title = document.getElementById('title').value;
+            const price = document.getElementById('price').value;
+            const description = document.getElementById('description').value;
+            const code = document.getElementById('code').value;
+            const stock = document.getElementById('stock').value;
+            const category = document.getElementById('category').value;
+
+            socket.emit('addProduct', {
+                title,
+                price,
+                description,
+                code,
+                stock,
+                category
+            });
+        });
+
+        // Manejo del formulario para eliminar productos
+        const deleteProductForm = document.getElementById('delete-product-form');
+        deleteProductForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const productId = document.getElementById('product-id').value;
+            socket.emit('deleteProduct', productId);
+        });
