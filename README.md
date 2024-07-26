@@ -1,4 +1,4 @@
-<h1>Proyecto Final: primera entrega. Alumno: Lautaro Cruz</h1>
+<h1>Proyecto Final: Segunda entrega. Alumno: Lautaro Cruz</h1>
     <h2>Proyecto realizado con:</h2>
     <div>
     <li>
@@ -19,6 +19,12 @@
     <li>
         Socket.io
     </li>
+    <li>
+        Sweetalert2
+    </li>
+    <li>
+        handlebars-layouts
+    </li>    
     <li>
         Git
     </li>
